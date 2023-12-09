@@ -31,11 +31,9 @@ const Router = {
         switch (route) {
             case "/":
                 pageElement = document.createElement("menu-page");
-                pageElement.textContent = "Menu"
                 break;
             case "/order":
                 pageElement = document.createElement("order-page");
-                pageElement.textContent = "Your order";
                 break;
             default:
                 if(route.startsWith("/product-")){
@@ -44,15 +42,16 @@ const Router = {
                     const paramId = route.substring(route.lastIndexOf("-"+1));
                     pageElement.dataset.id = paramId;
                 }
+                break;
         }
         if (pageElement){
             //This can also be achived with this
             //document.querySelector("main").children[0].remove();
             const cache = document.querySelector("main");
-            cache.innerHTML = ""
+            cache.innerHTML = "";
             cache.appendChild(pageElement);
-            window.scrollX = 0
-            window.screenY = 0
+            window.scrollX = 0;
+            window.screenY = 0;
         }
         
     }
